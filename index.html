@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1f4fa8">
+<title>汪汪救援队 · 10以内加减法</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky"><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div></div>
+
+<!-- 顶部栏 -->
+<header id="topbar" class="hidden">
+  <button class="icon-btn" id="btnHome" aria-label="回到瞭望塔">🏠</button>
+  <div id="stars"></div>
+  <button class="icon-btn" id="btnVoice" aria-label="声音">🔊</button>
+</header>
+
+<!-- 开始页 -->
+<section id="screen-start" class="screen active">
+  <div class="tower">
+    <div class="tower-top"><span>🐾</span></div>
+    <div class="tower-body"></div>
+  </div>
+  <h1 class="title">汪汪救援队<br><small>数学大任务</small></h1>
+  <div id="startPups" class="pup-row"></div>
+  <button class="big-btn go" id="btnStart">汪汪队，出发！🐾</button>
+</section>
+
+<!-- 选择任务 -->
+<section id="screen-menu" class="screen">
+  <h2 class="speech-bubble" id="menuTalk">选一个任务吧！</h2>
+  <div class="menu-grid">
+    <button class="mission m-count" data-mode="count"><span class="mi">🦴</span><b>数一数</b><i>骨头有几块？</i></button>
+    <button class="mission m-add" data-mode="add"><span class="mi">➕</span><b>狗狗集合</b><i>又来了几只？</i></button>
+    <button class="mission m-sub" data-mode="sub"><span class="mi">➖</span><b>骨头被吃掉</b><i>还剩几块？</i></button>
+    <button class="mission m-mix" data-mode="mix"><span class="mi">🏆</span><b>大挑战</b><i>加减法都有</i></button>
+  </div>
+  <div class="menu-bottom">
+    <button class="small-btn" id="btnBadges">🎖️ 我的队员</button>
+    <button class="small-btn" id="btnParent">👨‍👩‍👦 家长设置</button>
+  </div>
+</section>
+
+<!-- 游戏 -->
+<section id="screen-game" class="screen">
+  <div class="host">
+    <div id="hostPup" class="host-pup"></div>
+    <div class="speech-bubble" id="story">...</div>
+    <button class="icon-btn replay" id="btnReplay" aria-label="再听一遍">🔈</button>
+  </div>
+  <div id="scene" class="scene"></div>
+  <div id="equation" class="equation"></div>
+  <div id="frame" class="ten-frame"></div>
+  <div id="choices" class="choices"></div>
+  <div class="game-tools">
+    <button class="small-btn" id="btnHint">💡 帮帮我</button>
+  </div>
+</section>
+
+<!-- 队员墙 -->
+<section id="screen-badges" class="screen">
+  <h2 class="speech-bubble">每得到 5 颗星，就有一位新队员加入！</h2>
+  <div id="badgeGrid" class="badge-grid"></div>
+  <p class="total" id="totalStars"></p>
+  <button class="big-btn" id="btnBackMenu">回去做任务 🐾</button>
+</section>
+
+<!-- 家长设置 -->
+<section id="screen-parent" class="screen">
+  <div class="panel">
+    <h2>家长设置</h2>
+    <label>数字范围
+      <select id="setMax">
+        <option value="5">5 以内（入门）</option>
+        <option value="10">10 以内</option>
+        <option value="auto">自动升级（推荐）</option>
+      </select>
+    </label>
+    <label>每轮题目数
+      <select id="setRound"><option>5</option><option>8</option><option>10</option></select>
+    </label>
+    <label class="row"><input type="checkbox" id="setVoice" checked> 语音朗读题目</label>
+    <label class="row"><input type="checkbox" id="setFrame" checked> 显示“十格框”（帮助理解数量）</label>
+    <button class="small-btn danger" id="btnReset">清空星星和队员</button>
+    <div class="tips">
+      <h3>陪孩子玩的小建议</h3>
+      <ul>
+        <li>先玩“数一数”，再玩“狗狗集合（加法）”，最后玩“骨头被吃掉（减法）”。</li>
+        <li>鼓励孩子<b>用手指点每一个小狗/骨头</b>，点一下会大声数出来。</li>
+        <li>加法 = 合在一起变多；减法 = 拿走一些变少。让孩子说出“变多了”还是“变少了”。</li>
+        <li>十格框能让孩子一眼看出“5 和几”，是幼儿园常用的数学工具。</li>
+        <li>每次玩 10 分钟左右就好，保持兴趣最重要。</li>
+      </ul>
+      <p class="note">本程序为家庭学习用的非商业粉丝作品，所有角色形象均为原创绘制，“汪汪队立大功”版权归原作者所有。</p>
+    </div>
+    <button class="big-btn" id="btnParentBack">完成</button>
+  </div>
+</section>
+
+<!-- 结束 -->
+<section id="screen-end" class="screen">
+  <div id="endPup" class="end-pup"></div>
+  <h2 class="speech-bubble" id="endTalk">任务完成！</h2>
+  <div id="endStars" class="end-stars"></div>
+  <div class="end-btns">
+    <button class="big-btn go" id="btnAgain">再来一轮 🔁</button>
+    <button class="big-btn" id="btnEndMenu">换个任务 🗺️</button>
+  </div>
+</section>
+
+<div id="overlay" class="overlay hidden"><div class="overlay-card" id="overlayCard"></div></div>
+<canvas id="confetti"></canvas>
+<script src="pups.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
